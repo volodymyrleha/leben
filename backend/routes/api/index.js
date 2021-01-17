@@ -5,6 +5,6 @@ const authRouter = require('./auth.route')
 
 router.get('/status', (req, res) => { res.send({status: 'OK'}) }) // api status
 
-router.use('/auth', authRouter) // mount auth paths
+router.use('/auth', authRouter) 
 
 module.exports = router
