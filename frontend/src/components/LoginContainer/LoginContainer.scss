@@ -1,0 +1,46 @@
+.logincontainer {
+    width: 80vw;
+    height: 76vh;
+    display: flex;
+
+    h1 {
+        font-size: 40px;
+        color: $blue--dark;
+    }
+
+    .logincontainer__left {
+        height: 100%;
+        width: 36%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $white--transparent;
+
+        img {
+            width: 160px;
+            margin-bottom: 80px;
+        }
+    }
+
+    .logincontainer__right {
+        height: 100%;
+        width: 64%;
+        padding: 16px 80px 32px 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $white;
+        box-sizing: border-box;
+
+        button {
+            margin-top: 24px;
+        }
+
+        .button--sm {
+            margin-top: -16px;
+            align-self: flex-end;
+        }
+    }
+}

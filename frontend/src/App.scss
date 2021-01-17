@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+// colors
+$blue: #68C2E8;
+$blue--light: #E8F6FC;
+$blue--dark: #0E1E40;
+$black: #18191C;
+$gray: #949494;
+$white: #FFF;
+$white--transparent: rgba(255, 255, 255, 0.719);
+$violet: #9568E8;
+
+// gradients
+$gradient: linear-gradient(36deg, rgba(104,194,232,1) 0%, rgba(104,145,232,1) 35%, rgba(149,104,232,1) 100%);
+
+@import "./components/LoginLayout/loginlayout.scss";
+@import "./components/LoginContainer/LoginContainer.scss";
+@import "./components/Button/Button.scss";
+@import "./components/InputField/InputFiled.scss";
