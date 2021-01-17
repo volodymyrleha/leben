@@ -5,4 +5,4 @@ const schema = new Schema({
     description: {type: String, unique: false}
 });
 
-module.exports = model('User', schema);
+module.exports = model('Task', schema);

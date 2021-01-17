@@ -7,4 +7,4 @@ const schema = new Schema({
     mark: { type: Number, required: true }
 }, { timestamps: true });
 
-module.exports = model('User', schema);
+module.exports = model('TaskAnswer', schema);

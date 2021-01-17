@@ -16,6 +16,13 @@ router.get('/login', auth(), (req, res) => {
   // example route for auth
   res.json({ message: 'Anyone can access(only authorized)' })
 })
-
+router.get('/admin', auth(['admin']), (req, res) => {
+  // example route for auth
+  res.json({ message: 'Only admin can access' })
+})
+router.get('/', auth(['user']), (req, res) => {
+  // example route for auth
+  res.json({ message: 'Only user can access' })
+})
 
 module.exports = router

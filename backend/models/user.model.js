@@ -3,7 +3,8 @@ const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs')
 const httpStatus = require('http-status')
 const APIError = require('../src/utils/APIError')
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
+const Types = mongoose.Types;
 
 const roles = [
   'user', 'admin'
@@ -30,6 +31,9 @@ const userSchema = new Schema({
     type: String,
     default: 'user',
     enum: roles
+  }, 
+  tasksFinished: {
+    type: [{type: Types.ObjectId, ref: 'Task'}]
   }
 }, {
   timestamps: true
