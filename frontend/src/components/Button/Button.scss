@@ -1,0 +1,42 @@
+.button {
+    min-width: 220px;
+    padding: 12px 20px;
+    border: 3px solid transparent;
+    font-size: 20px;   
+    font-weight: bold;    
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button--blue {
+    background-color: $blue;
+    color: white;
+}
+
+.button--bordered {
+    border: 3px solid $blue;
+    background-color: white;
+    color: $blue;
+}
+
+.button--bordered:hover {
+    background-color: $blue;
+    color: $white;
+    transition: .3s;
+}
+
+.button--onlytext {
+    min-width: auto;
+    padding: 0;
+    background-color: transparent;
+    color: $gray;
+}
+
+.button--onlytext:hover {
+    color: $blue--dark;
+    transition: .3s;
+}
+
+.button--sm {
+    font-size: 16px;
+}
