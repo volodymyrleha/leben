@@ -6,8 +6,9 @@ const etalonComparer = (etalon, task) => {
     console.log(etalon, task);    
     set.add(etalon);
     const result = set.get(task);
-    //return result[0][0];
-    return Math.random();
+    
+    if (result) return result[0][0]
+    else return 0;
 }
 
 module.exports = etalonComparer;
