@@ -15,6 +15,10 @@
     font-size: 16px;
 }
 
+.button--w100 {
+    width: 100%;
+}
+
 .button--blue { background-color: $blue; }
 .button--green { background-color: $green; }
 .button--darkblue { background-color: $blue--dark; }
