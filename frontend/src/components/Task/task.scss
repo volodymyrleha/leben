@@ -1,0 +1,49 @@
+.task {
+    width: 48%;
+    height: 280px;
+    position: relative;
+    padding: 16px 32px;
+    margin-bottom: 60px;
+    background-color: $gray--light;
+    box-sizing: border-box;
+
+    h3 {
+        margin-top: 8px;
+        margin-bottom: 12px;
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .task__date {
+        position: absolute;
+        bottom: 8px;
+        right: 32px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $gray;
+    }
+
+    .task__mark {
+        position: absolute;
+        bottom: 8px;
+        left: 32px;
+        font-size: 18px;
+        font-weight: bold;
+        color: $black;
+    }
+
+    button {
+        position: absolute;
+        bottom: 28px;
+        left: 32px;
+    }
+}
+
+.task--blue { border-left: 8px solid $blue; }
+.task--violet { border-left: 8px solid $violet; }
+.task--darkblue { border-left: 8px solid $blue--dark; }
+.task--green { border-left: 8px solid $green; }
+.task--red { border-left: 8px solid $red; }

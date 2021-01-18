@@ -1,20 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import ChangePassword from '../ChangePassword/ChangePassword';
 
-export default function LoginLayout(props) {
-    const [tab, setTab] = useState(0);
+import useTabHook from '../../hooks/useTabHook';
 
-    const handleTab = newTab => {
-        setTab(newTab);
-    }
+export default function LoginLayout(props) {
+    const tabHook = useTabHook();
 
     return (
         <div className="loginlayout">
             {
-                tab === 0 ? <Login change={handleTab} /> :
-                    ( tab === 1 ? <Register change={handleTab} /> : <ChangePassword change={handleTab} /> )
+                tabHook.tab === 0 ? <Login change={tabHook.handleTab} /> :
+                    ( tabHook.tab === 1 ? <Register change={tabHook.handleTab} /> : <ChangePassword change={tabHook.handleTab} /> )
             }
         </div>
     );

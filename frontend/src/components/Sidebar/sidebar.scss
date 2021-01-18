@@ -1,0 +1,47 @@
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100px;
+    height: calc(100vh - 60px);
+    background-color: $gray--light;
+
+    ul {
+        padding: 0;
+
+        li {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            svg {
+                height: 40px;
+                width: 40px;
+            }
+
+            span {
+                margin-top: 8px;
+                font-size: 12px;
+                font-weight: bold;
+                color: $gray;
+                transition: .3s;
+            }
+        }
+
+        li.active {
+            span {
+                color: $blue;
+            }
+        }
+
+        li:hover {
+            span {
+                color: $blue;
+                transition: .3s;
+            }
+        }
+    }
+}
