@@ -32,6 +32,7 @@ router.put('/:taskid', auth(['admin']), async (req, res) => {
     const task = await Task.findById(taskId);
 
     const { etalon, description, maxMark} = req.body;
+    console.log(etalon);
 
     if (etalon) {
         task.etalon = etalon;
@@ -74,10 +75,15 @@ router.get('/completed/', auth(['user']), async (req, res) => {
     res.status(200).json({ tasks, message: 'Completed tasks fetched' });
 })
 
-router.post('/taskpass', auth(['user']), async (req, res) => {
+router.post('/pass', auth(['user']), async (req, res) => {
     const { solution, taskId} = req.body;
     
     const userId = req.user._id;
+
+    if (req.user.tasksFinished.includes(taskId)) {
+        return res.status(422).json({ message: 'You have already passed this test' })
+    
+    }
     const task = await Task.findById(taskId);
 
     const percentage = etalonComparer(task.etalon, solution);
@@ -94,6 +100,14 @@ router.post('/taskpass', auth(['user']), async (req, res) => {
     res.status(201).json({ message: 'Solution is saved', taskAnswer })
 });
 
+router.get('/studentstat', auth(['user']), async (req, res) => {
+    const userId = req.user._id;
+    const tasksByUser = await TaskAnswer.find({userId});
+    const tasksAll = await Task.find({});
+    const averagePercentage = tasksByUser.reduce((accum, task) => task.percentage + accum, 0)/tasksByUser.length;
+    const completedPercentage = req.user.tasksFinished.length/tasksAll.length * 100;
 
+    res.status(200).json({ averagePercentage, completedPercentage , message: 'Student stat fetched' });
+})
 
 module.exports = router

@@ -36,6 +36,8 @@ export default function Login(props) {
                 .then(res => res.json())
                 .then(data => {
                     cookies.set('token', data.token);
+                    cookies.set('role', data.user.role);
+                    cookies.set('name', data.user.name);
                     window.location = window.location.origin + '/workspace';
                 })
                 .catch(err => {

@@ -6,7 +6,6 @@ const etalonComparer = (etalon, task) => {
     console.log(etalon, task);    
     set.add(etalon);
     const result = set.get(task);
-    console.log(result);
     //return result[0][0];
     return Math.random();
 }

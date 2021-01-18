@@ -1,12 +1,21 @@
 import React from 'react';
 import Button from '../Button/Button';
+import Cookies from 'universal-cookie';
 
 export default function Task(props) {
     const data = props.task;
+    const cookies = new Cookies();
 
     const handleOpen = () => {
-        localStorage.setItem('taskId', data._id);
-        props.handleTab(3);
+        if (props.edit) {   
+            cookies.set('taskId', data._id);
+            cookies.set('description', data.description);
+            cookies.set('etalon', data.etalon);
+        } else {
+            localStorage.setItem('taskId', data._id);
+        }
+
+        props.handleTab(props.edit ? 2 : 3);
     }
 
     return (
@@ -23,7 +32,7 @@ export default function Task(props) {
                     ) : 
                     (
                         <React.Fragment>
-                            <Button sm color={props.color} text="Виконати" onClick={handleOpen} />
+                            <Button sm color={props.color} text={ props.edit ? 'Редагувати' : 'Виконати' } onClick={handleOpen} />
                             <p className="task__date">{data.ddl}</p>
                         </React.Fragment>
                     )
