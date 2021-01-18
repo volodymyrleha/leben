@@ -33,7 +33,7 @@ export default function TasksContainer(props) {
         <div className="taskscontainer">
             {
                 props.tasks.map((item, index) => 
-                    <Task key={index} task={item} color={getColor(index)} done={props.done ? true : false } />)
+                    <Task key={index} task={item} handleTab={props.handleTab} color={getColor(index)} done={props.done ? true : false } />)
             }
         </div>
     );

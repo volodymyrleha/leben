@@ -7,10 +7,17 @@ import StatisticsTab from '../StatisticsTab/StatisticsTab';
 import TasksTab from '../TasksTab/TasksTab';
 import DoTaskTab from '../DoTaskTab/DoTaskTab';
 
+import Cookies from 'universal-cookie';
+
 import useTabHook from '../../hooks/useTabHook';
 
 export default function WorkspaceLayout(props) {
     const tabHook = useTabHook();
+
+    const cookies = new Cookies();
+
+    if (!cookies.get('token'))
+        window.location = window.location.origin + '/';
 
     let tab;
     switch (tabHook.tab) {

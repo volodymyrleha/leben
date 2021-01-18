@@ -3,11 +3,15 @@ import LoginContainer from '../LoginContainer/LoginContainer';
 import InputField from '../InputField/InputField';
 import Button from '../Button/Button';
 
+import Cookies from 'universal-cookie';
+
 import useValueHook from '../../hooks/useValueHook';
 
 export default function Login(props) {
     const emailInput = useValueHook();
     const passwordInput = useValueHook();
+
+    const cookies = new Cookies();
 
     const leftButton = {
         text: 'Зареєструватися',
@@ -19,7 +23,24 @@ export default function Login(props) {
     const rightButton = {
         text: 'Ввійти',
         onClick: () => {
-            window.location = window.location.origin + '/workspace';
+            const requestOptions = {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: emailInput.value,
+                    password: passwordInput.value
+                })
+            };
+
+            fetch('api/auth/login', requestOptions)
+                .then(res => res.json())
+                .then(data => {
+                    cookies.set('token', data.token);
+                    window.location = window.location.origin + '/workspace';
+                })
+                .catch(err => {
+                    alert('Введено неправильно логін або пароль')
+                })
         }
     }
 

@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 import logo from '../../images/lebenlogo.png';
 import { ReactComponent as LogoutIcon } from '../../images/logout.svg';
 
 export default function Navbar(props) {
+    const logout = () => {
+        const cookies = new Cookies();
+        cookies.remove('token');
+        window.location = window.location.origin + '/';
+    }
+
     return (
         <nav className="nav">
             <div>
@@ -13,10 +19,8 @@ export default function Navbar(props) {
                     <li>Лега В.Р.</li>
                     <li>ПЗ-41</li>
                     <li>Студент</li>
-                    <li>
-                        <Link to="/">
-                            <LogoutIcon />
-                        </Link>
+                    <li onClick={logout}>               
+                        <LogoutIcon />
                     </li>
                 </ul>
             </div>

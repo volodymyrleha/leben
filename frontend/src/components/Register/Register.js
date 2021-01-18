@@ -14,19 +14,37 @@ export default function Register(props) {
         onClick: () => {
             props.change(0);
         }
-    }
+    }   
 
     const rightButton = {
         text: 'Зареєструватися',
         onClick: () => {
-            alert('Вас Зареєстровано!');
-            props.change(0);
+            const requestOptions = {
+                method: 'post',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    email: emailInput.value,
+                    password: passwordInput.value,
+                    name: nameInput.value,
+                    role: "user"
+                })
+            }
+
+            fetch('api/auth/register', requestOptions)
+                .then(res => res.json())
+                .then(data => {
+                    alert('Вас зареєстровано!');
+                    props.change(0);
+                })
+                .catch(err => {
+                    alert('Не правильно введено поля!');
+                })
         }
     }
 
     return (
         <LoginContainer header='Ввійти' leftButton={leftButton} rightButton={rightButton}>
-            <InputField label="Ім'я та Прізвище"value={nameInput.value} onChange={nameInput.handleChange} />
+            <InputField label="Ім'я та Прізвище" value={nameInput.value} onChange={nameInput.handleChange} />
             <InputField label='Електронна адреса' value={emailInput.value} onChange={emailInput.handleChange} />
             <InputField label='Пароль' password value={passwordInput.value} onChange={passwordInput.handleChange} />
         </LoginContainer>

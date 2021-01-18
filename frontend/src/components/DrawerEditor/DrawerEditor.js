@@ -10,8 +10,8 @@ export default function DoTaskTab(props) {
             <textarea onChange={props.handleChange}></textarea>
             <Link to="https://github.com/skanaar/nomnoml" target="_blank">
                 <Button w100 color="blue" text="Нотація" />
-                <Button w100 color="red" text="Завершити" />
             </Link>
+            <Button w100 color="red" text="Завершити" onClick={props.handleSend} />
         </div>
     );
 };

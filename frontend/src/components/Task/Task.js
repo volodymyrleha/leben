@@ -4,6 +4,11 @@ import Button from '../Button/Button';
 export default function Task(props) {
     const data = props.task;
 
+    const handleOpen = () => {
+        localStorage.setItem('taskId', data._id);
+        props.handleTab(3);
+    }
+
     return (
         <div className={`task task--${props.color}`}>
             <h3>{ data.header }</h3>
@@ -18,7 +23,7 @@ export default function Task(props) {
                     ) : 
                     (
                         <React.Fragment>
-                            <Button sm color={props.color} text="Виконати" onClick={data.openTask} />
+                            <Button sm color={props.color} text="Виконати" onClick={handleOpen} />
                             <p className="task__date">{data.ddl}</p>
                         </React.Fragment>
                     )
