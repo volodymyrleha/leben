@@ -13,7 +13,7 @@ export default function LoginContainer(props) {
             <div className="logincontainer__right">
                 <h1>{props.header}</h1>
                 { props.children }
-                <Button text={props.rightButton.text} onClick={props.rightButton.onClick} />
+                <Button color="blue" text={props.rightButton.text} onClick={props.rightButton.onClick} />
             </div>
         </div>
     );

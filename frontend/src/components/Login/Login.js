@@ -19,7 +19,7 @@ export default function Login(props) {
     const rightButton = {
         text: 'Ввійти',
         onClick: () => {
-            window.location = window.location.origin + '/home';
+            window.location = window.location.origin + '/workspace';
         }
     }
 
