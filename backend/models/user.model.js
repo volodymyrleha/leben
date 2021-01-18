@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt-nodejs')
 const httpStatus = require('http-status')
-const APIError = require('../src/utils/APIError')
+const APIError = require('../utils/APIError')
 const Schema = mongoose.Schema;
 const Types = mongoose.Types;
 

@@ -17,7 +17,7 @@ mongoose.set('debug', true)
 
 exports.connect = () => {
 
-  mongoose.connect(config.mongoURI, {
+  mongoose.connect(config.mongoUri, {
     keepAlive: 1,
     useNewUrlParser: true
   })
