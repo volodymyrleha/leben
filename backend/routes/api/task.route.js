@@ -63,7 +63,7 @@ router.get('/notcompleted/', auth(['user']), async (req, res) => {
     const userId = req.user._id;
     const tasks = await Task.find({});
     const user = await User.findById(userId);
-    tasks.filter((task) => !user.tasksFinished.includes(task));
+    tasks.filter((task) => !user.tasksFinished.includes(task._id));
 
     res.status(200).json({ tasks, message: 'Not completed tasks fetched' });
 })
