@@ -10,6 +10,8 @@ export default function LoginLayout(props) {
 
     styles += props.sm ? ' button--sm' : '';
 
+    styles += props.w100 ? ' button--w100' : '';
+
     return (
         <button className={styles} onClick={props.onClick}>{ props.text }</button>
     );
