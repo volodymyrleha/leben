@@ -3,7 +3,7 @@
 const User = require('../models/user.model')
 const passport = require('passport')
 const APIError = require('../utils/APIError')
-const httpStatus = require('../models/node_modules/http-status')
+const httpStatus = require('http-status')
 const util = require('util');
 
 // handleJWT with roles

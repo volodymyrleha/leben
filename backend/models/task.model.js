@@ -1,7 +1,8 @@
 const { Schema, model, Types } = require('mongoose');
 
 const schema = new Schema({
-    etalon: { type: Object },
+    etalon: { type: String },
+    maxMark: {type: Number},
     description: {type: String, unique: false}
 });
 
